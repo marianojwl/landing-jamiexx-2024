@@ -1,5 +1,16 @@
-.Form input {
+.Form input[type="text"] {
   width: 12rem !important;
+}
+.Form input:focus {
+  box-shadow: none;
+}
+
+.invalid {
+  border-color: red !important;
+}
+
+.valid {
+  border-color: green !important;
 }
 
 .Form h1 {
@@ -10,6 +21,7 @@
 .Form {
   position: relative;
   width: 100%;
+  max-width: 780px;
   margin: 0 auto;
   padding: 2rem;
   background-color: #111111;
@@ -22,7 +34,9 @@
   top: 50%;
   left: 50%;
   width: 70vw;
+  min-width: 550px;
   height: 40vw;
+  min-height: 350px;
   background: white;
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 0;
