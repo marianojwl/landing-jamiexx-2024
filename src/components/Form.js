@@ -43,6 +43,29 @@ function Form() {
     }
   }, [email]);
 
+  /************
+   * HANDLERS *
+   ************/
+  const sendData = () => {
+    const endopoint = process.env.REACT_APP_BASE_DIR + 'server/suscribe';
+    fetch(endopoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name, email, agrees})
+    })
+    .then(response => response.json())
+    .then(data => {
+      setSending(false);
+      setSent(data.success);
+    })
+    .catch(() => {
+      setSending(false);
+      setSent(false);
+    });
+  };
+
   /**********
    * RENDER *
    **********/
@@ -83,6 +106,7 @@ function Form() {
         </div>
         <div>
           <button 
+            onClick={sendData}
             className="btn btn-dark rounded-0"
             disabled={!nameIsValid || !emailIsValid || !agrees || sending || sent}
           >

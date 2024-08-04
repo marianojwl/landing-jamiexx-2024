@@ -46,17 +46,22 @@ try {
   $email = $conn->real_escape_string($input['email']);
   $ip = $_SERVER['REMOTE_ADDR'];
   $table = $_ENV['DB_TABLE'];
-  $sql = "INSERT INTO $table (name, email, ip) VALUES ('$name', '$email', '$ip')";
-  $r = $conn->query($sql);
-  if (!$r) {
-    throw new Exception($conn->error);
-  }
-
+  $sql = "INSERT INTO ".$table." (name, email, ip) VALUES ('$name', '$email', '$ip')";
+  $conn->query($sql);
+  
   $result['success'] = true;
   $result['message'] = 'Datos recibidos.';
 
 } catch (Exception $e) {
-    $result['message'] = 'Ocurrió un error.';
+
+    switch ($conn->errno) {
+      case 1062:
+        $result['message'] = 'El correo ya está registrado.';
+        break;
+      default:
+        $result['message'] = 'Ocurrió un error.';
+        break;
+    }
     $result['error'] = $e->getMessage();
 }
 echo json_encode($result);
