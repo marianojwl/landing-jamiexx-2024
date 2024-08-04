@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# Rewrite any non-empty URL to the corresponding .php file
+RewriteRule ^([a-z]+)$ $1.php [L]
+
+# Return a 403 Forbidden response for the root URL
+RewriteRule ^$ - [R=403,L]
+
+# Custom error document for 403 Forbidden
+ErrorDocument 403 "Forbidden"
+ErrorDocument 404 "Not Found"
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+<Files .env.local>
+    Order allow,deny
+    Deny from all
+</Files>
