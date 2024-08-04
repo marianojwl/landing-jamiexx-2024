@@ -1,16 +1,14 @@
-.Form input[type="text"] {
-  width: 12rem !important;
-}
 .Form input:focus {
   box-shadow: none;
 }
 
 .invalid {
-  border-color: red !important;
+  border-bottom:2px solid rgb(193, 0, 0) !important;
 }
 
+
 .valid {
-  border-color: green !important;
+  border-color: rgb(0, 0, 0) !important;
 }
 
 .Form h1 {
@@ -18,31 +16,16 @@
   /* italic */
   font-style: italic; 
 }
-.Form {
-  position: relative;
-  width: 100%;
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #111111;
-  z-index: 1;
+
+.Form p {
+  color:#111;
 }
 
-.Form::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 70vw;
-  min-width: 550px;
-  height: 40vw;
-  min-height: 350px;
-  background: white;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  z-index: 0;
+.Form a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
 }
-
-.Form > * {
-  position: relative;
-  z-index: 1;
+.Form a:hover {
+  text-decoration: underline;
 }

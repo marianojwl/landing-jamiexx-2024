@@ -47,10 +47,13 @@ try {
   $ip = $_SERVER['REMOTE_ADDR'];
   $table = $_ENV['DB_TABLE'];
   $sql = "INSERT INTO ".$table." (name, email, ip) VALUES ('$name', '$email', '$ip')";
-  $conn->query($sql);
+  $r = $conn->query($sql);
+  if(!$r) {
+    throw new Exception('Ocurrió un error.');
+  }
   
   $result['success'] = true;
-  $result['message'] = 'Datos recibidos.';
+  $result['message'] = '¡Recibimos tus datos! Ya estamos en contacto.';
 
 } catch (Exception $e) {
 

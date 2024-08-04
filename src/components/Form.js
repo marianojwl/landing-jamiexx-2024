@@ -81,9 +81,11 @@ function Form() {
    * RENDER *
    **********/
   return (
-    <div className="Form d-flex justify-content-center align-items-center vh-100">
-      <div className="text-center">
-        <h1 className="mb-4 fs-4">Enterate de las Novedades</h1>
+    <div className='Form'>
+      <div className="py-4">
+        <div className='text-center'>
+          <h1 className="mb-4">Enterate de las Novedades y Accedé a la Pre-Venta</h1>
+        </div>
         <div className="mb-3">
           <input 
             type="text" 
@@ -115,6 +117,19 @@ function Form() {
           />
           <label className="form-check-label" htmlFor="agrees">Acepto los términos y condiciones</label>
         </div>
+        { !agrees && 
+          <div className='mb-3'>
+            <p>
+            Jamie xx, The xx y Young utilizarán la información que proporciones en este formulario para estar en contacto contigo y para enviarte actualizaciones y marketing.
+            </p>
+            <p>
+            Podés cambiar de opinión en cualquier momento haciendo clic en el enlace de desuscripción en el pie de cualquier correo electrónico que recibas de nosotros, o contactándonos a <a href="mailto:list@thexx.info">list@thexx.info</a>. Trataremos tu información con respeto. Para más información sobre nuestras prácticas de privacidad, visitá:  <a target='_blank' href="https://beggars.com/privacypolicy/">https://beggars.com/privacypolicy/</a> . Al hacer clic a continuación, aceptás que podamos procesar tu información de acuerdo con estos términos.
+            </p>
+            <p>
+              Usamos Mailchimp como nuestra plataforma de marketing. Al hacer clic a continuación para suscribirte, reconocés que tu información será transferida a Mailchimp para su procesamiento. Más información sobre las prácticas de privacidad de Mailchimp.
+            </p>
+          </div>
+        }
         <div className='mb-3'>
           <button 
             onClick={sendData}

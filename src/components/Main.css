@@ -1,10 +1,6 @@
-.Main {
-  margin-top: 3rem;
-  background-image: url('../images/flyer-2-1080X1920.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: top;
-  width: 90vw;
+a.navBarLink {
+  text-decoration: none;
 }
-  
+a.navBarLink:hover {
+  text-decoration: underline;
+}
