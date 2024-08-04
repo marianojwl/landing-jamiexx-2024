@@ -54,15 +54,25 @@ try {
 
 } catch (Exception $e) {
 
+    // log error into file
+    error_log(implode(' ', [
+      date("Y-m-d H:i:s"),
+      $_SERVER['REMOTE_ADDR'],
+      json_encode($input),
+      $e->getMessage()
+    ]) . "\n", 3, __DIR__ . '/error.log');
+  
+    // user feedback
+    $result['message'] = 'Ocurrió un error.';
+
     switch ($conn->errno) {
       case 1062:
-        $result['message'] = 'El correo ya está registrado.';
+        $result['error'] = 'El correo ya está registrado.';
         break;
       default:
-        $result['message'] = 'Ocurrió un error.';
+        $result['error'] = $e->getMessage();
         break;
     }
-    $result['error'] = $e->getMessage();
 }
 echo json_encode($result);
 http_response_code(200);

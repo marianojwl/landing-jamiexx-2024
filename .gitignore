@@ -3,6 +3,7 @@
 # .env files
 /public/server/.env
 /public/server/.env.local
+/public/server/error.log
 
 # dependencies
 /node_modules

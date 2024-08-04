@@ -12,6 +12,8 @@ function Form() {
   const [emailIsValid, setEmailIsValid] = useState(null);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(null);
+  const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
 
 
   /**********
@@ -43,10 +45,17 @@ function Form() {
     }
   }, [email]);
 
+  useEffect(() => {
+    setSent(null);
+    setError(null);
+    setMessage(null);
+  }, [agrees, email, name]);
+
   /************
    * HANDLERS *
    ************/
   const sendData = () => {
+    setSending(true);
     const endopoint = process.env.REACT_APP_BASE_DIR + 'server/suscribe';
     fetch(endopoint, {
       method: 'POST',
@@ -59,6 +68,8 @@ function Form() {
     .then(data => {
       setSending(false);
       setSent(data.success);
+      setError(data.error);
+      setMessage(data.message);
     })
     .catch(() => {
       setSending(false);
@@ -104,7 +115,7 @@ function Form() {
           />
           <label className="form-check-label" htmlFor="agrees">Acepto los términos y condiciones</label>
         </div>
-        <div>
+        <div className='mb-3'>
           <button 
             onClick={sendData}
             className="btn btn-dark rounded-0"
@@ -113,6 +124,21 @@ function Form() {
             Enviar
           </button>
         </div>
+        { sending &&
+        <div className='mb-3'>
+          Enviando...
+        </div>
+        }
+        { (!sending && message) &&
+        <div className='mb-3'>
+          {message}
+        </div>
+        }
+        { (!sending && error) &&  
+        <div className='mb-3'>
+          {error}
+        </div>
+        }
       </div>
     </div>
   );
