@@ -1,5 +1,5 @@
 import React from 'react'
-import flyer from '../images/flyer-1080X1350.png';
+import flyer from '../images/crumb.jpg';
 
 export default function Flyer() {
   return (

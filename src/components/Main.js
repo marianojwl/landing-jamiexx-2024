@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form';
-import flyer from '../images/flyer-1080X1350.png';
+import flyer from '../images/crumb.jpg';
 import './Main.css';
 // main.
 function Main() {
