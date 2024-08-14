@@ -11,6 +11,13 @@ $result = [
     'message' => null
 ];
 
+if($_ENV['FORM_OPEN'] != 1) {
+  $result['message'] = 'El formulario ya se ha cerrado.';
+  echo json_encode($result);
+  http_response_code(200);
+  exit();
+}
+
 try {
   // set the database connection
   $conn = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_ENV['DB_NAME']);

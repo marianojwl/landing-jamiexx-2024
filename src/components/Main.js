@@ -1,31 +1,49 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Form from './Form';
 import flyer from '../images/flyer-1080X1350.png';
 import './Main.css';
 // main.
 function Main() {
-  return (
+  const [formOpen, setFormOpen] = useState(null);
+  
+  useEffect(() => {
+    const endopoint = process.env.REACT_APP_BASE_DIR + 'server/isformopen';
+    fetch(endopoint)
+    .then(res => res.json())
+    .then(data => {
+      setFormOpen(data.data.form_open);
+      if(!data.success) {
+        alert(data.message);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }, []);
+
+  return (formOpen===null) ? <div>Loading...</div> : (
     <div className='container'>
       <nav className='navbar navbar-light bg-white my-3'>
         <div className='container'>
           <span className='navbar-brand mb-0 h1'></span>
           <span className='navbar-text'>
-            <a className='navBarLink' href='#form'>Novedades y Pre-Venta</a>
+            { formOpen && <a className='navBarLink' href='#form'>Novedades y Pre-Venta</a> }
           </span>
         </div>
-
       </nav>
       <div className='row'>
         <div className='col'>
           <img src={flyer} className='w-100' />
         </div>
       </div>
+      { formOpen &&
       <div className='row'>
         <div className='col'>
           <a name='form'></a>
           <Form />
         </div>
       </div>
+      }
       <div className='row'>
         <div className='col'>
           <div className='text-center py-4 my-4'>
