@@ -120,13 +120,13 @@ function Form() {
         { !agrees && 
           <div className='mb-3'>
             <p>
-            Jamie xx, The xx y Young utilizarán la información que proporciones en este formulario para estar en contacto contigo y para enviarte actualizaciones y marketing.
+            Franz Ferdinand, Indie Folks y Spa utilizarán la información que proporciones en este formulario para estar en contacto contigo y para enviarte actualizaciones y marketing.
             </p>
             <p>
-            Podés cambiar de opinión en cualquier momento haciendo clic en el enlace de desuscripción en el pie de cualquier correo electrónico que recibas de nosotros, o contactándonos a <a href="mailto:list@thexx.info">list@thexx.info</a>. Trataremos tu información con respeto. Para más información sobre nuestras prácticas de privacidad, visitá:  <a target='_blank' href="https://beggars.com/privacypolicy/">https://beggars.com/privacypolicy/</a> . Al hacer clic a continuación, aceptás que podamos procesar tu información de acuerdo con estos términos.
+            Podés cambiar de opinión en cualquier momento haciendo clic en el enlace de desuscripción en el pie de cualquier correo electrónico que recibas de nosotros. Trataremos tu información con respeto. Al hacer clic a continuación, aceptás que podamos procesar tu información de acuerdo con estos términos.
             </p>
             <p>
-              Usamos Mailchimp como nuestra plataforma de marketing. Al hacer clic a continuación para suscribirte, reconocés que tu información será transferida a Mailchimp para su procesamiento. Más información sobre las prácticas de privacidad de Mailchimp.
+              Usamos Mailchimp como nuestra plataforma de marketing. Al hacer clic a continuación para suscribirte, reconocés que tu información será transferida a Mailchimp para su procesamiento. Consulta más información sobre las prácticas de privacidad en Mailchimp.
             </p>
           </div>
         }

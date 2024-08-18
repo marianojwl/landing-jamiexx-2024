@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Form from './Form';
-import flyer from '../images/flyer-1080X1350.png';
+import flyer from '../images/franz.jpg';
 import './Main.css';
 // main.
 function Main() {
